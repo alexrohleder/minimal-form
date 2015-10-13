@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minimal Form Interface</title>
+        <link rel="stylesheet" href="css/form.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/vendor/modernizr.js"></script>
+        <script src="js/form.js"></script>
+    </head>
+    <body>
+
+        <h1></h1>
+
+        <form class="ar-form" novalidate>
+        
+            <ol class="questions">
+                <li class="question current">
+                    <label for="name">Qual seu Nome?</label>
+                    <input type="text" name="name" id="name" required>
+                </li>
+                <li class="question">
+                    <label for="email">Qual seu Email?</label>
+                    <input type="email" name="email" id="email" required>
+                </li>
+                <li class="question">
+                    <label for="email">Qual sua mensagem?</label>
+                    <input type="text" name="email" id="email" required>
+                </li>
+            </ol>
+
+            <button class="next"></button>
+
+            <div class="progress"><div class="progress-bar"></div></div>
+            <div class="error">&nbsp;</div>
+            <div class="count"><span class="itr">1</span>/<span class="total">1</span></div>
+
+        </form>
+
+        <script>
+            $(function () {
+
+            /**
+             * Initializing the contact form and defining the logic
+             * for the submit, here you can define an ajax for example.
+             */
+
+            $('form').form({
+                submit: function () {
+
+                    $('form').fadeOut();
+                    $('h1').html('Thanks!');
+
+                }
+            });
+
+        });
+
+        </script>
+
+    </body>
+</html>
