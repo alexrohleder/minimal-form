@@ -4,7 +4,7 @@
  *
  * Refactored version of the Codrop's minimal form interface, now simplier, in jQuery and SASS.
  *
- * @author Alex Rohleder <alexrohleder96@outlook.com> <alexrohleder.com.br>
+ * @author Alex Rohleder <alexrohleder96@outlook.com> <https://www.alexrohleder.com.br> <https://blog.alexrohleder.com.br>
  * @version 1.0
  */
 
@@ -45,16 +45,17 @@ $animation-time: 0.4s;
         height: 0;
 
         label {
+            position: absolute;
+            left: 0;
+            top: 0;
             transition: opacity $animation-time, transform $animation-time;
             transform: translateY(-100%);
             overflow: hidden;
-            display: block;
             opacity: 0;
         }
 
         input {
             outline: none;
-            height: $font-size;
             display: inline-block;
             line-height: $font-size;
             background: $background;
@@ -64,6 +65,7 @@ $animation-time: 0.4s;
             width: $large-width;
             color: $color;
             margin: 0;
+            margin-top: $font-size;
         }
 
         &.current {
@@ -80,13 +82,13 @@ $animation-time: 0.4s;
 
     .progress {
         z-index: 100;
-        background: lighten($background, 20%);
+        background: darken($background, 10%);
         height: 4px;
         width: 100%;
 
         .progress-bar {
             transition: width $animation-time, ease-in-out;
-            background: darken($background, 20%);
+            background: $color;
             height: 100%;
             width: 0%;
         }
@@ -104,7 +106,9 @@ $animation-time: 0.4s;
         top: $font-size;
 
         .arrow {
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" + $font-size + "' height='" + $font-size + "' viewBox='0 0 " + $font-size + " " + $font-size + "'><path fill='" + $color +  "' d='M19.414 27.414l10-10c0.781-0.781 0.781-2.047 0-2.828l-10-10c-0.781-0.781-2.047-0.781-2.828 0s-0.781 2.047 0 2.828l6.586 6.586h-19.172c-1.105 0-2 0.895-2 2s0.895 2 2 2h19.172l-6.586 6.586c-0.39 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z'></path></svg>");
+            transition: opacity .5s;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" + $font-size + "' height='" + $font-size + "' viewBox='0 0 " + $font-size + " " + $font-size + "'><path fill='" + $color + "' d='M19.414 27.414l10-10c0.781-0.781 0.781-2.047 0-2.828l-10-10c-0.781-0.781-2.047-0.781-2.828 0s-0.781 2.047 0 2.828l6.586 6.586h-19.172c-1.105 0-2 0.895-2 2s0.895 2 2 2h19.172l-6.586 6.586c-0.39 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z'></path></svg>");
+            opacity: 0.2;
             background-position: center center;
             background-repeat: no-repeat;
             height: $font-size + ($padding * 2);
@@ -112,7 +116,8 @@ $animation-time: 0.4s;
         }
 
         &:hover .arrow {
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" + $font-size + "' height='" + $font-size + "' viewBox='0 0 " + $font-size + " " + $font-size + "'><path fill='" + lighten($color, 30%) + "' d='M19.414 27.414l10-10c0.781-0.781 0.781-2.047 0-2.828l-10-10c-0.781-0.781-2.047-0.781-2.828 0s-0.781 2.047 0 2.828l6.586 6.586h-19.172c-1.105 0-2 0.895-2 2s0.895 2 2 2h19.172l-6.586 6.586c-0.39 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z'></path></svg>");
+            transition: opacity .5s;
+            opacity: 1;
             cursor: pointer;
         }
     }
