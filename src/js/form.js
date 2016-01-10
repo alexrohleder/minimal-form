@@ -4,7 +4,7 @@
  *
  * Refactored version of the Codrop's minimal form interface, now simplier, in jQuery and SASS.
  *
- * @author Alex Rohleder <alexrohleder96@outlook.com> <https://www.alexrohleder.com.br> <https://blog.alexrohleder.com.br>
+ * @author Alex Rohleder <alexrohleder96@outlook.com> <alexrohleder.com.br>
  * @version 1.0
  */
  
@@ -23,7 +23,11 @@ $(function () {
 
     $.fn.form = function (options) {
 
-        // Getting the event end name implemented in the current browser.
+        /**
+         * Getting the event end name implemented in the
+         * current browser.
+         */
+
         var transEndEventName = ({
             'WebkitTransition': 'webkitTransitionEnd',
             'MozTransition': 'transitionend',
@@ -42,7 +46,11 @@ $(function () {
         var status = form.find('.count .itr');
         var error = form.find('.error');
 
-        // The default error handler returns the browser default validation message (in english)
+        /**
+         * The default error handler returns the browser
+         * default validation message (in english)
+         */
+
         var settings = $.extend({
             validate: function (e) {
                 if (Modernizr.formvalidation) {
@@ -59,12 +67,20 @@ $(function () {
             }
         }, options);
 
-        // When user get in touch with the form, this is the very first event, when user initiate to fill the form.
+        /**
+         * When user get in touch with the form, this is the
+         * very first event, when user initiate to fill the form.
+         */
+
         var onQuestionFocus = function () {
             // do something ...
         }
 
-        // on question submit execute question change logic if it is a valid one.
+        /**
+         * on question submit execute question change logic
+         * if it is a valid one.
+         */
+
         var onQuestionSubmit = function (ev) {
             ev.preventDefault();
 
@@ -88,19 +104,30 @@ $(function () {
             question = questions.eq(current).addClass('current').find('input').focus();
         }
 
-        // executed when all the question transition was done.
+        /**
+         * executed when all the question transition was
+         * done.
+         */
+
         var onTransitionEnd = function () {
             form.removeClass('change');
         }
 
-        // Check if the key pressed is an enter, if so execute the submition.
+        /**
+         * Check if the key pressed is an enter, if so execute the submition.
+         */
+
         var onQuestionWrite = function (e) {
             if (e.which == 13) next.click();
         }
 
-        // initial dom manipulations. and event binding.
+        /**
+         * initial dom manipulations.
+         * and event binding.
+         */
+
         form.find('.count .total').html(questions.length);
-        questions.on('focus', onQuestionFocus).on('keyup', onQuestionWrite);
+        questions.on('focus', onQuestionFocus).on('keypress', onQuestionWrite);
         next.on('click', onQuestionSubmit);
         progress.on(transEndEventName, onTransitionEnd);
     }
