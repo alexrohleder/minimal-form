@@ -2,7 +2,7 @@
 /**
  * Minimal Form Interface (orginaly on: tympanus.net/codrops/2014/04/01/minimal-form-interface/)
  *
- * Refactored version of the Codrop's minimal form interface, now simplier, in jQuery and SASS.
+ * Refactored version of the Codrop's minimal form interface, now simpler, in jQuery and SASS.
  *
  * @author Alex Rohleder <alexrohleder96@outlook.com> <alexrohleder.com.br>
  * @version 1.0
